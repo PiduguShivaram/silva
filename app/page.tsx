@@ -1,20 +1,43 @@
-import AmenitiesSection from "@/components/AmenitiesSection";
-import BookSection from "@/components/BookSection";
-import Hero from "@/components/Hero";
+"use client";
+
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
-import RoomsSection from "@/components/RoomsSection";
+import Hero from "@/components/Hero";
+import RoomsSection from "@/components/Rooms/RoomsSection";
+import AmenitiesSection from "@/components/Amenities/AmenitiesSection";
+import GallerySection from "@/components/Gallery/GallerySection";
+import LocationSection from "@/components/Location/LocationSection";
+import TestimonialsSection from "@/components/Testimonials/TestimonialsSection";
+import BookSection from "@/components/BookSection";
+import StatsSection from "@/components/StatsSection";
+import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import LoadingScreen from "@/components/LoadingScreen";
+
+const SmoothScrollProvider = dynamic(
+  () => import("@/lib/smooth-scroll"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <RoomsSection />
-      <AmenitiesSection />
-      <BookSection />
-      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-white/40">
-        © {new Date().getFullYear()} Aurelia Grand Hotel. All rights reserved.
-      </footer>
-    </main>
+    <>
+      <LoadingScreen />
+      <CustomCursor />
+      <SmoothScrollProvider>
+        <main>
+          <Navbar />
+          <Hero />
+          <StatsSection />
+          <RoomsSection />
+          <AmenitiesSection />
+          <GallerySection />
+          <TestimonialsSection />
+          <LocationSection />
+          <BookSection />
+          <Footer />
+        </main>
+      </SmoothScrollProvider>
+    </>
   );
 }

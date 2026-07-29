@@ -1,6 +1,6 @@
-import RoomCard, { type Room } from "./RoomCard";
+import RoomCard3D from "./RoomCard3D";
 
-const rooms: Room[] = [
+const rooms = [
   {
     id: "1",
     name: "Grand Suite",
@@ -35,20 +35,25 @@ const rooms: Room[] = [
 
 export default function RoomsSection() {
   return (
-    <section id="rooms" className="scroll-mt-24 bg-luxury-bg px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-14 text-center">
+    <section id="rooms" className="relative overflow-hidden bg-luxury-bg px-6 py-24">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-luxury-gold/5 via-transparent to-luxury-gold/5" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-luxury-gold">
             Accommodations
           </p>
           <h2 className="font-serif text-4xl text-luxury-cream md:text-5xl">
-            Rooms and Suites
+            Rooms &amp; Suites
           </h2>
+          <p className="mx-auto mt-4 max-w-lg text-sm text-white/40">
+            Each space is a masterpiece of design, crafted for the discerning traveler.
+          </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} />
+          {rooms.map((room, i) => (
+            <RoomCard3D key={room.id} room={room} index={i} />
           ))}
         </div>
       </div>

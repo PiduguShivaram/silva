@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aurelia Grand Hotel | Luxury Redefined",
+  title: "SILVA | Aurelia Grand Hotel — Luxury Redefined",
   description:
     "A cinematic sanctuary where modern architecture meets timeless elegance.",
 };
